@@ -73,12 +73,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             // context : 사용가능 but context == nullable
             // startActivity(Intent(requireActivity(), addArticleActivity::class.java))
             context?.let {
-                if (auth.currentUser != null) {
-                    startActivity(Intent(context, addArticleActivity::class.java))
-                } else {
-                    // TODO 로그인 기눙 구현 후 주석 지우기
-                    // Snackbar.make(view, "로그인 후 사용해주세요.", Snackbar.LENGTH_LONG).show()
-                }
+                // if (auth.currentUser != null) {
+                startActivity(Intent(context, AddArticleActivity::class.java))
+                // } else {
+                // TODO 로그인 기눙 구현 후 주석 지우기
+                // Snackbar.make(view, "로그인 후 사용해주세요.", Snackbar.LENGTH_LONG).show()
+                // }
             }
         }
 
