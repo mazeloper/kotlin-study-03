@@ -151,7 +151,8 @@ class AddArticleActivity : AppCompatActivity() {
         if (resultCode != Activity.RESULT_OK) {
             return
         }
-        when (requestCode) {
+        when
+                (requestCode) {
             2000 -> {
                 val uri = data?.data
                 if (uri != null) {
