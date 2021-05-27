@@ -10,7 +10,7 @@ import com.jschoi.develop.aop_part03_chapter06.databinding.ItemArticleBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ArticleAdapter : ListAdapter<ArticleModel, ArticleAdapter.ArticleItemViewHolder>(diffUtil) {
+class  ArticleAdapter : ListAdapter<ArticleModel, ArticleAdapter.ArticleItemViewHolder>(diffUtil) {
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<ArticleModel>() {
             override fun areItemsTheSame(oldItem: ArticleModel, newItem: ArticleModel): Boolean {

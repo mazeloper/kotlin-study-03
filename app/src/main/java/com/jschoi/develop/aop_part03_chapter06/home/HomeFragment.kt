@@ -28,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val listener = object : ChildEventListener {
         override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
             // Class Mapping
-            Log.d("atat", "@#$@#$@#%#$^%#$^#$%^")
             val articleModel = snapshot.getValue(ArticleModel::class.java)
             articleModel ?: return
 
