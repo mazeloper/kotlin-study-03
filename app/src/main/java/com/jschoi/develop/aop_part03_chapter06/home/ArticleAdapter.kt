@@ -10,7 +10,8 @@ import com.jschoi.develop.aop_part03_chapter06.databinding.ItemArticleBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class  ArticleAdapter : ListAdapter<ArticleModel, ArticleAdapter.ArticleItemViewHolder>(diffUtil) {
+class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) :
+    ListAdapter<ArticleModel, ArticleAdapter.ArticleItemViewHolder>(diffUtil) {
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<ArticleModel>() {
             override fun areItemsTheSame(oldItem: ArticleModel, newItem: ArticleModel): Boolean {
@@ -52,6 +53,10 @@ class  ArticleAdapter : ListAdapter<ArticleModel, ArticleAdapter.ArticleItemView
                 Glide.with(binding.thumbnailImageView)
                     .load(articleModel.imageUrl)
                     .into(binding.thumbnailImageView)
+            }
+
+            binding.root.setOnClickListener {
+                onItemClicked(articleModel)
             }
         }
     }
