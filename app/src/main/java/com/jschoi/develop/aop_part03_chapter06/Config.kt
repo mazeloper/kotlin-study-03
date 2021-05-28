@@ -5,5 +5,6 @@ class Config {
         const val DB_ARTICLES = "Articles"
         const val DB_USERS = "Users"
         const val CHILD_CHAT = "ChildChat"
+        const val DB_CHATS = "Chats"
     }
 }

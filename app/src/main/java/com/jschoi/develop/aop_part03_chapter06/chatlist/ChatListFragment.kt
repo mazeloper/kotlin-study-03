@@ -1,5 +1,6 @@
 package com.jschoi.develop.aop_part03_chapter06.chatlist
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.jschoi.develop.aop_part03_chapter06.Config.Companion.CHILD_CHAT
 import com.jschoi.develop.aop_part03_chapter06.Config.Companion.DB_USERS
 import com.jschoi.develop.aop_part03_chapter06.R
+import com.jschoi.develop.aop_part03_chapter06.chatdetail.ChatRoomActivity
 import com.jschoi.develop.aop_part03_chapter06.databinding.FragmentChatListBinding
 
 class ChatListFragment : Fragment(R.layout.fragment_chat_list) {
@@ -33,8 +35,12 @@ class ChatListFragment : Fragment(R.layout.fragment_chat_list) {
         val fragmentChatListBinding = FragmentChatListBinding.bind(view)
         binding = fragmentChatListBinding
 
-        chatListAdapter = ChatListAdapter(onItemClicked = {
-            // TODO 채팅방으로 이동 하는 코드
+        chatListAdapter = ChatListAdapter(onItemClicked = { item ->
+            context?.let {
+                val intent = Intent(context, ChatRoomActivity::class.java)
+                intent.putExtra("chatKey", item.key)
+                startActivity(intent)
+            }
         })
         chatRoomList.clear()
 
